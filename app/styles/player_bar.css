@@ -138,6 +138,14 @@
     font-size: 1.1rem;
     display: inline-block;
     vertical-align: middle;
+    -webkit-transition: font-size 100ms ease-in-out,             
+    -moz-transition: font-size 100ms ease-in-out,
+    transition: font-size 100ms ease-in-out,
+}
+
+.player-bar .volume .icon:hover {
+    cursor: pointer;
+    font-size: 1.6rem;
 }
 
 .player-bar .volume .seek-bar {

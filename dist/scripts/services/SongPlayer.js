@@ -67,6 +67,17 @@
         };
         
         /**
+        * @function isMuted
+        * @desc checks if song is muted
+        * @return {boolean}
+        */
+        var isMuted = function() {
+            if(currentBuzzObject) {
+                return currentBuzzObject.isMuted();
+            }
+        };
+        
+        /**
         * @desc Tracks currently playing song
         * @type {object}
         */
@@ -87,12 +98,42 @@
         /**
         * @function setVolume
         * @desc Sets volume of currently playing song
-        * @param {Number} time
+        * @param {Number} volume
         */
         SongPlayer.setVolume = function(volume) {
             if(currentBuzzObject) {
                 currentBuzzObject.setVolume(volume);
+            } 
+        };
+        
+        /**
+        * @function toggleMute
+        * @desc Toogles volume between mute and un-mute
+        */
+        SongPlayer.toggleMute = function() {
+            if(currentBuzzObject) {
+                currentBuzzObject.toggleMute();
             }
+        };
+        
+        /**
+        * @function SongPlayer.status
+        * @desc sets volume icon according to its value
+        * @return {String} status
+        */
+        SongPlayer.status = function() {
+            var status = "";
+            
+            if(isMuted()){
+                status = "mute";
+            } else if(currentBuzzObject.getVolume() > 65) {
+                status = "high";
+            } else if(currentBuzzObject.getVolume() < 66 && currentBuzzObject.getVolume() > 33) {
+                status = "medium";
+            } else {
+                status = "low";
+            }
+            return status;
         };
         
         /**

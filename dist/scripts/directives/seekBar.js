@@ -1,5 +1,5 @@
 (function() {
-    function seekBar($document) {
+    function seekBar($document, SongPlayer) {
         var calculatePercent = function(seekBar, event) {
             var offsetX = event.pageX - seekBar.offset().left;
             var seekBarWidth = seekBar.width();
@@ -24,6 +24,10 @@
                 
                 attributes.$observe('value', function(newValue) {
                     scope.value = newValue;
+                    
+                    if (scope.value === scope.max) {
+                        SongPlayer.next();
+                    }
                 });
                 
                 attributes.$observe('max', function(newValue) {
@@ -77,5 +81,5 @@
     
     angular
         .module('blocJams')
-        .directive('seekBar', ['$document', seekBar]);
+        .directive('seekBar', ['$document', 'SongPlayer', seekBar]);
 })();

@@ -79,6 +79,23 @@
         SongPlayer.currentTime = null;
         
         /**
+        * @desc Holds the value of the volume
+        * @type {Number}
+        */
+        SongPlayer.volume = 80;
+        
+        /**
+        * @function setVolume
+        * @desc Sets volume of currently playing song
+        * @param {Number} time
+        */
+        SongPlayer.setVolume = function(volume) {
+            if(currentBuzzObject) {
+                currentBuzzObject.setVolume(volume);
+            }
+        };
+        
+        /**
         * @function SongPlayer.play
         * @desc Checks if SongPlayer.currentSong is intiallized or not and calls setSong and playSong accordingly
         * @param {Object} song
@@ -146,9 +163,7 @@
         * @param {Number} time
         */
         SongPlayer.setCurrentTime = function(time) {
-            console.log("reached function");
             if(currentBuzzObject) {
-                console.log("got here");
                 currentBuzzObject.setTime(time);
             }
         };

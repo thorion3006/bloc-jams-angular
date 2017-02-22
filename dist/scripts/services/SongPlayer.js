@@ -122,13 +122,13 @@
         * @return {String} status
         */
         SongPlayer.status = function() {
-            var status = "";
+            var status = "high";
             
             if(isMuted()){
                 status = "mute";
-            } else if(currentBuzzObject.getVolume() > 65) {
+            } else if(currentBuzzObject && currentBuzzObject.getVolume() > 65) {
                 status = "high";
-            } else if(currentBuzzObject.getVolume() < 66 && currentBuzzObject.getVolume() > 33) {
+            } else if(currentBuzzObject && currentBuzzObject.getVolume() < 66 && currentBuzzObject.getVolume() > 33) {
                 status = "medium";
             } else {
                 status = "low";

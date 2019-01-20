@@ -1,5 +1,7 @@
 ## Bloc Frontend Project Starter
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/thorion3006/bloc-jams-angular.svg)](https://greenkeeper.io/)
+
 A starter application for student projects in Bloc's [Frontend Web Development Course](https://www.bloc.io/frontend-development-bootcamp).
 
 ## Configuration
